@@ -29,4 +29,10 @@ public class EmployeeController {
         List<EmployeeDto> allEmployee=employeeService.getAllEmployee();
        return ResponseEntity.ok(allEmployee);
     }
+
+    @GetMapping("/getbyid/{id}")
+    public ResponseEntity<EmployeeDto> getById(@PathVariable("id") Long employeeId) {
+        EmployeeDto employee = employeeService.getById(employeeId);
+        return ResponseEntity.ok(employee);
+    }
 }

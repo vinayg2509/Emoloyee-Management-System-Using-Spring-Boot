@@ -1,14 +1,14 @@
 package com.ems.controller;
 
 import com.ems.dto.EmployeeDto;
+import com.ems.mapper.EmployeeMapper;
 import com.ems.services.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
@@ -21,5 +21,12 @@ public class EmployeeController {
     {
         EmployeeDto savedEmployee=employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<List<EmployeeDto>> getAll()
+    {
+        List<EmployeeDto> allEmployee=employeeService.getAllEmployee();
+       return ResponseEntity.ok(allEmployee);
     }
 }

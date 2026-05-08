@@ -23,7 +23,7 @@ public class Employee {
 
     @Column(name="first_name")
     @Pattern(regexp = "^[a-zA-Z ]{2,50}$", message = "Invalid name")
-    private String fullName;
+    private String firstName;
 
     @Pattern(regexp = "^[a-zA-Z ]{2,50}$", message = "Invalid name")
     @Column(name="last_name")

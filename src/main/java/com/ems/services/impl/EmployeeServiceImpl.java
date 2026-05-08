@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-   EmployeeRepository employeeRepository;
+ private final   EmployeeRepository employeeRepository;
 
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {

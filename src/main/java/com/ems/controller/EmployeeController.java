@@ -2,6 +2,7 @@ package com.ems.controller;
 
 import com.ems.dto.EmployeeDto;
 import com.ems.mapper.EmployeeMapper;
+import com.ems.model.Employee;
 import com.ems.services.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -43,5 +44,11 @@ public class EmployeeController {
         return ResponseEntity.ok("Employee with id "+employeeId+" deleted Successfully");
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<EmployeeDto> updateById(@PathVariable("id") Long employeeId , @RequestBody EmployeeDto employeeDto)
+    {
+        EmployeeDto updatedEmployee=employeeService.updateEmployeeById(employeeId,employeeDto);
+        return ResponseEntity.ok(updatedEmployee);
+    }
 
 }

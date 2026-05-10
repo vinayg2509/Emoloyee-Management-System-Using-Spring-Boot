@@ -16,4 +16,6 @@ public interface EmployeeService
     EmployeeDto getById(Long id);
 
     void deleteById(Long employeeId);
+
+    EmployeeDto updateEmployeeById(Long employeeId ,EmployeeDto updatedEmployee);
 }
